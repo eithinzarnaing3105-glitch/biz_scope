@@ -69,6 +69,10 @@ st.markdown(
     div.stButton > button[kind="primary"]:hover {{ background: #195954 !important; color: #FFFFFF !important; }}
     [data-testid="stDataFrame"] {{ border: 1px solid {COLORS['line']}; border-radius: 14px; overflow: hidden; }}
     [data-testid="stAlert"] {{ border-radius: 14px; border: 1px solid rgba(35,108,103,.10); }}
+    [data-testid="stSidebar"] [data-testid="stAlert"] {{ background: #203B43 !important;
+        background-color: #203B43 !important; border: 1px solid #54736D !important;
+        border-radius: 14px; color: #F3F6F4 !important; }}
+    [data-testid="stSidebar"] [data-testid="stAlert"] * {{ color: #F3F6F4 !important; }}
     [data-testid="stVerticalBlockBorderWrapper"] {{ background: rgba(255,255,255,.82);
         border-color: {COLORS['line']} !important; border-radius: 16px; box-shadow: 0 5px 18px rgba(20,42,50,.035); }}
     [data-testid="stChatMessage"] {{ background: rgba(255,255,255,.83); border: 1px solid {COLORS['line']};
@@ -1156,7 +1160,7 @@ st.sidebar.caption("CURRENT TABLE")
 st.sidebar.markdown(f"**{source_name}**")
 st.sidebar.caption(f"{len(data):,} rows · {len(data.columns):,} fields · {int(data.isna().sum().sum()):,} blank cells")
 if prepared_label and source_name == prepared_label:
-    st.sidebar.success("Prepared copy selected. Suggestions and charts use these updated data.")
+    st.sidebar.success("Prepared copy active. Charts and suggestions use this version.")
 elif prepared_label:
     st.sidebar.caption("A prepared copy is available in this table selector.")
 if data.shape[1] == 0:
